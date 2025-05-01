@@ -1,0 +1,499 @@
+/* --- Global Styles & Variables --- */
+:root {
+    --primary-color: #006a4e; /* Example: A shade of green associated with KSA */
+    --secondary-color: #cdaa7d; /* Example: A gold/sand color */
+    --text-color: #333;
+    --bg-color: #f9f9f9;
+    --light-gray: #eee;
+    --white: #fff;
+    --heading-font: 'Arial', sans-serif; /* Choose a professional font */
+    --body-font: 'Arial', sans-serif;   /* Choose a readable font */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--body-font);
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure footer stays at bottom */
+}
+
+main {
+    flex-grow: 1; /* Allows main content to push footer down */
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--heading-font);
+    margin-bottom: 0.8em;
+    color: var(--primary-color);
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.5rem; }
+h4 { font-size: 1.2rem; }
+
+p {
+    margin-bottom: 1em;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--secondary-color);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block; /* Remove extra space below image */
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+    border: none;
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    background-color: darken(var(--primary-color), 10%);
+     color: var(--white);
+}
+
+.btn-secondary {
+    background-color: var(--secondary-color);
+    color: var(--white);
+}
+
+.btn-secondary:hover {
+    background-color: darken(var(--secondary-color), 10%);
+    color: var(--white);
+}
+
+
+/* --- Header & Navigation --- */
+header {
+    background-color: var(--white);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 1rem 0;
+    position: sticky; /* Make header sticky */
+    top: 0;
+    z-index: 1000; /* Ensure header is above other content */
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo img {
+    height: 50px; /* Adjust as needed */
+    margin-right: 10px;
+}
+
+.logo h1 {
+    margin: 0;
+    font-size: 1.8rem; /* Adjust as needed */
+    color: var(--primary-color);
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+}
+
+.main-nav li {
+    margin-left: 20px;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+    color: var(--white);
+    background-color: var(--primary-color);
+}
+
+/* Hamburger Menu Styles */
+.nav-toggle {
+    display: none; /* Hidden by default on larger screens */
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    padding: 0.5em;
+    position: absolute; /* Position relative to header content or nav */
+    right: 1em;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1100;
+}
+
+.hamburger {
+    display: block;
+    position: relative;
+    background-color: var(--primary-color);
+    width: 2em;
+    height: 3px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.hamburger::before,
+.hamburger::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    background-color: var(--primary-color);
+    width: 100%;
+    height: 3px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.hamburger::before { top: -8px; }
+.hamburger::after { bottom: -8px; }
+
+
+/* --- Footer --- */
+footer {
+    background-color: #333;
+    color: var(--white);
+    text-align: center;
+    padding: 1.5rem 0;
+    margin-top: 3rem; /* Space above footer */
+}
+
+footer p {
+    margin: 0;
+}
+
+/* --- Page Specific Styles --- */
+
+/* Home Page */
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/riyadh-skyline.jpg') no-repeat center center/cover; /* Replace with a suitable background image */
+    color: var(--white);
+    text-align: center;
+    padding: 6rem 0;
+}
+
+.hero h2 {
+    color: var(--white);
+    font-size: 3rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.featured-products {
+    padding: 3rem 0;
+    text-align: center;
+}
+
+.product-grid-preview {
+     display: grid;
+     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+     gap: 1.5rem;
+     margin-top: 2rem;
+}
+
+.product-card-preview {
+    background: var(--white);
+    padding: 1rem;
+    border: 1px solid var(--light-gray);
+    border-radius: 5px;
+    text-align: center;
+}
+.product-card-preview img {
+    max-height: 150px;
+    margin: 0 auto 1rem auto;
+}
+.product-card-preview h4 {
+    margin-bottom: 0.5rem;
+     font-size: 1.1rem;
+}
+
+/* About Us Page */
+.about-us {
+    padding: 3rem 0;
+}
+
+.team-members {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.team-member-card {
+    background-color: var(--white);
+    padding: 1.5rem;
+    border: 1px solid var(--light-gray);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.team-photo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 1rem auto;
+    display: block;
+}
+
+.team-member-card h3 {
+    text-align: center;
+    color: var(--primary-color);
+}
+
+.team-member-card p {
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+}
+.team-member-card p strong {
+    color: var(--text-color);
+}
+
+/* Products Page */
+.products-page {
+    padding: 3rem 0;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid */
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.product-card {
+    background: var(--white);
+    border: 1px solid var(--light-gray);
+    border-radius: 8px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.product-card img {
+    max-height: 250px; /* Adjust as needed */
+    object-fit: cover; /* Or 'contain' depending on images */
+    margin-bottom: 1rem;
+    border-radius: 4px;
+}
+
+.product-card h3 {
+    margin-bottom: 0.5rem;
+    flex-grow: 0; /* Don't allow title to grow */
+}
+
+.product-description {
+    font-size: 0.9rem;
+    color: #555;
+    flex-grow: 1; /* Allow description to take up space */
+    margin-bottom: 1rem;
+}
+
+.product-price {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    margin-top: auto; /* Push price and button to bottom */
+    margin-bottom: 1rem;
+}
+
+/* Contact Page */
+.contact-page {
+    padding: 3rem 0;
+}
+
+.contact-info, .social-media, .contact-form {
+    background-color: var(--white);
+    padding: 1.5rem;
+    border: 1px solid var(--light-gray);
+    border-radius: 8px;
+    margin-bottom: 2rem;
+}
+
+.contact-info p, .social-media a {
+    margin-bottom: 0.5rem;
+    display: block; /* Make links block for spacing */
+}
+.social-media i {
+    margin-right: 8px; /* Space between icon and text */
+    color: var(--primary-color);
+    width: 20px; /* Align icons */
+    text-align: center;
+}
+
+/* Basic Form Styling (Optional) */
+.contact-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 1rem;
+    border: 1px solid var(--light-gray);
+    border-radius: 4px;
+    font-family: inherit;
+}
+.contact-form textarea {
+    resize: vertical;
+}
+
+/* Summary Page */
+.summary-page {
+    padding: 3rem 0;
+}
+.summary-content {
+    background-color: var(--white);
+    padding: 2rem;
+    border: 1px solid var(--light-gray);
+    border-radius: 8px;
+}
+
+.summary-content h3 {
+    margin-top: 1.5rem;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 0.3rem;
+    margin-bottom: 1rem;
+}
+.summary-content ul {
+    list-style: disc;
+    margin-left: 25px;
+    margin-bottom: 1.5rem;
+}
+.summary-content li {
+    margin-bottom: 0.5rem;
+}
+.warning {
+    color: #d9534f; /* Red color for warning */
+    font-weight: bold;
+    border: 1px solid #d9534f;
+    padding: 1rem;
+    margin-top: 2rem;
+    background-color: #f2dede;
+    border-radius: 5px;
+}
+
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+    .header-content {
+        position: relative; /* Needed for absolute positioning of toggle */
+    }
+
+    .nav-toggle {
+        display: block; /* Show hamburger */
+    }
+
+    .main-nav ul {
+        display: none; /* Hide nav links by default */
+        flex-direction: column;
+        position: absolute;
+        top: 100%; /* Position below header */
+        right: 0;
+        background-color: var(--white);
+        width: 100%; /* Or adjust as needed */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 1rem 0;
+        text-align: center;
+    }
+
+    .main-nav ul.nav-open {
+        display: flex; /* Show nav links when open */
+    }
+
+
+    .main-nav li {
+        margin: 1rem 0;
+    }
+
+     /* Hamburger animation when open */
+    .nav-open .hamburger {
+        transform: rotate(45deg);
+    }
+    .nav-open .hamburger::before {
+        transform: rotate(90deg) translate(-8px, 0px);
+    }
+     .nav-open .hamburger::after {
+         opacity: 0; /* Hide bottom bar */
+     }
+
+
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.8rem; }
+    .hero { padding: 4rem 0; }
+    .hero h2 { font-size: 2.5rem; }
+
+    .team-members {
+        grid-template-columns: 1fr; /* Stack team members */
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjust grid for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .logo h1 {
+        font-size: 1.5rem;
+    }
+     .product-grid {
+        grid-template-columns: 1fr; /* Stack products on very small screens */
+    }
+}
