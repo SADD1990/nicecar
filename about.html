@@ -3,22 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - [Your Shop Name]</title>
+    <title>About Us - Nice Car</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-     <script src="https://kit.fontawesome.com/your-fontawesome-kit-code.js" crossorigin="anonymous"></script>
+     <script src="https://kit.fontawesome.com/your-fontawesome-kit-code.js" crossorigin="anonymous" defer></script>
 </head>
 <body>
-    <header>
+    <header id="main-header">
         <div class="container header-content">
             <a href="index.html" class="logo">
-                <img src="images/logo.png" alt="[Your Shop Name] Logo">
-                <h1>[Your Shop Name]</h1>
+                <img src="images/logo.png" alt="Nice Car Logo">
+                <h1>Nice Cars</h1>
             </a>
             <nav class="main-nav">
-                 <button class="nav-toggle" aria-label="toggle navigation">
+                 <button class="nav-toggle" aria-label="toggle navigation" aria-expanded="false">
                     <span class="hamburger"></span>
                 </button>
-                <ul>
+                <ul data-visible="false">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html" class="active">About Us</a></li>
                     <li><a href="products.html">Products</a></li>
@@ -30,39 +33,73 @@
     </header>
 
     <main>
-        <section class="about-us">
+        <section class="page-title-section about-title">
+             <div class="container">
+                 <h2>About Nice Car & Our Team</h2>
+                 <p>Learn more about our project and the students behind it.</p>
+            </div>
+        </section>
+
+        <section class="project-goal-section">
+            <div class="container fade-in">
+                <h3>Our Project Goal</h3>
+                <p>
+                    As part of our MIS 201 course, the "Nice Car" project aims to apply key information systems concepts to design and develop a functional prototype for an online car dealership based in Riyadh. We focused on creating a user-friendly interface, structuring product information effectively, and understanding the basics of e-commerce website development. This platform showcases our combined skills in software, networking, and business strategy.
+                </p>
+            </div>
+        </section>
+
+        <section class="team-section">
             <div class="container">
-                <h2>Meet the Team</h2>
-                <p>We are students passionate about [Your Business Field/Idea], bringing this e-shop to life as part of our MIS 201 course project.</p>
-
+                <h3 class="team-heading">Meet the Team</h3>
                 <div class="team-members">
-                    <div class="team-member-card">
-                        <h3>[Student 1 Name]</h3>
-                        <p><strong>ID:</strong> [Student 1 ID]</p>
-                        <p><strong>Major:</strong> [Student 1 Major]</p>
-                        <p><strong>Reason for Choosing Major:</strong> [Write a brief reason here...]</p>
-                    </div>
-                    <div class="team-member-card">
-                        <h3>[Student 2 Name]</h3>
-                        <p><strong>ID:</strong> [Student 2 ID]</p>
-                        <p><strong>Major:</strong> [Student 2 Major]</p>
-                        <p><strong>Reason for Choosing Major:</strong> [Write a brief reason here...]</p>
-                    </div>
-
-                    <div class="team-member-card">
-                        <h3>[Student 3 Name]</h3>
-                        <p><strong>ID:</strong> [Student 3 ID]</p>
-                        <p><strong>Major:</strong> [Student 3 Major]</p>
-                         <p><strong>Reason for Choosing Major:</strong> [Write a brief reason here...]</p>
+                    <div class="team-member-card fade-in">
+                        <div class="team-member-photo-placeholder">
+                            <i class="fas fa-user"></i>
+                            </div>
+                        <h4>Abdulrahman Hassan Alsayed</h4>
+                        <div class="team-member-details">
+                            <p><strong>ID:</strong> <span>202410236</span></p>
+                            <p><strong>Major:</strong> <span>Software Engineering</span></p>
+                        </div>
+                        <p class="contribution-focus"><strong>Focus:</strong> Building robust application features and ensuring a seamless user experience on the platform.</p>
                     </div>
 
-                     <div class="team-member-card">
-                        <h3>[Student 4 Name]</h3>
-                        <p><strong>ID:</strong> [Student 4 ID]</p>
-                        <p><strong>Major:</strong> [Student 4 Major]</p>
-                         <p><strong>Reason for Choosing Major:</strong> [Write a brief reason here...]</p>
+                    <div class="team-member-card fade-in">
+                         <div class="team-member-photo-placeholder">
+                            <i class="fas fa-user"></i>
+                            </div>
+                        <h4>Abdullaziz bahabri</h4>
+                         <div class="team-member-details">
+                            <p><strong>ID:</strong> <span>202111107</span></p>
+                            <p><strong>Major:</strong> <span>Networks</span></p>
+                        </div>
+                        <p class="contribution-focus"><strong>Focus:</strong> Ensuring reliable site connectivity and exploring foundational security aspects for online operations.</p>
                     </div>
 
+                    <div class="team-member-card fade-in">
+                        <div class="team-member-photo-placeholder">
+                           <i class="fas fa-user"></i>
+                           </div>
+                        <h4>Saeed Alqhtani</h4>
+                         <div class="team-member-details">
+                            <p><strong>ID:</strong> <span>202111132</span></p>
+                            <p><strong>Major:</strong> <span>Software</span></p>
+                         </div>
+                        <p class="contribution-focus"><strong>Focus:</strong> Developing intuitive front-end interfaces and implementing core software logic for website functionality.</p>
+                     </div>
+
+                     <div class="team-member-card fade-in">
+                         <div class="team-member-photo-placeholder">
+                            <i class="fas fa-user"></i>
+                            </div>
+                        <h4>Saleh Alzaid</h4>
+                         <div class="team-member-details">
+                            <p><strong>ID:</strong> <span>202121429</span></p>
+                            <p><strong>Major:</strong> <span>Business Administration</span></p>
+                         </div>
+                        <p class="contribution-focus"><strong>Focus:</strong> Applying business strategy, market perspective, and operational considerations to the project's design.</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -70,7 +107,10 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 [Your Shop Name]. All Rights Reserved. Riyadh, Saudi Arabia.</p>
+             <p>&copy; <span id="current-year"></span> Nice Car. All Rights Reserved. Riyadh, Saudi Arabia.</p>
+             <div class="footer-links">
+                 <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a>
+             </div>
         </div>
     </footer>
 

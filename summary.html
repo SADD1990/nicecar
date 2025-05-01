@@ -3,22 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Course Summary - [Your Shop Name]</title>
+    <title>Course Summary - Nice Car</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-     <script src="https://kit.fontawesome.com/your-fontawesome-kit-code.js" crossorigin="anonymous"></script>
+     <script src="https://kit.fontawesome.com/your-fontawesome-kit-code.js" crossorigin="anonymous" defer></script>
 </head>
 <body>
-    <header>
+    <header id="main-header">
         <div class="container header-content">
             <a href="index.html" class="logo">
-                <img src="images/logo.png" alt="[Your Shop Name] Logo">
-                <h1>[Your Shop Name]</h1>
+                <img src="images/logo.png" alt="Nice Car Logo">
+                <h1>Nice Cars</h1>
             </a>
             <nav class="main-nav">
-                 <button class="nav-toggle" aria-label="toggle navigation">
+                 <button class="nav-toggle" aria-label="toggle navigation" aria-expanded="false">
                     <span class="hamburger"></span>
                 </button>
-                <ul>
+                <ul data-visible="false">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About Us</a></li>
                     <li><a href="products.html">Products</a></li>
@@ -30,31 +33,85 @@
     </header>
 
     <main>
+         <section class="page-title-section">
+             <div class="container">
+                 <h2>MIS 201 Course Summary</h2>
+            </div>
+        </section>
+
         <section class="summary-page">
-            <div class="container">
-                <h2>MIS 201 Course Summary: Chapter [Chapter Number/Title]</h2>
+            <div class="container fade-in">
+                <h3>Chapter 7: Telecommunications, the Internet, and Wireless Technology</h3>
 
                 <div class="summary-content">
-                    <h3>Most Important Topics Studied:</h3>
+                    <p>This chapter explores the fundamental components, architectures, and emerging trends in wired and wireless networking. It is structured around four core learning objectives:</p>
                     <ul>
-                        <li>[Topic 1 from the chapter]</li>
-                        <li>[Topic 2 from the chapter]</li>
-                        <li>[Topic 3 from the chapter]</li>
-                        {/* */}
+                        <li>Identify the principal components of telecommunications networks and key networking technologies.</li>
+                        <li>Distinguish among different types of networks.</li>
+                        <li>Explain how the Internet and Internet technologies function to support communication and e-business.</li>
+                        <li>Describe the principal technologies and standards for wireless networking, communication, and Internet access.</li>
                     </ul>
 
-                    <h3>Summary in Our Own Words:</h3>
-                    <p>
-                        [ **IMPORTANT:** Write your summary of the chosen MIS 201 chapter here.
-                        Explain the key concepts, definitions, and significance of the topics listed above
-                        in your own words. This section must be original work by your group.
-                        Explain how the concepts relate to information systems in business.
-                        Make it comprehensive and demonstrate your understanding.]
-                    </p>
+                    <h4>1. Network Components and Key Networking Technologies</h4>
+                    <p>A computer network connects two or more computers via hardware (network interface cards, hubs, switches, routers) and software (network operating systems).</p>
+                    <p>Hubs broadcast incoming packets to all connected devices; switches and routers manage traffic more intelligently by directing packets only to their intended destinations.</p>
+                    <p>Client/server computing has largely replaced centralized mainframes, with servers managing communication rules and clients requesting services over a network—the Internet being the largest implementation of this model.</p>
+                    <p>Packet switching slices messages into packets sent via multiple paths and reassembled at the destination, maximizing bandwidth efficiency.</p>
+                    <p>TCP/IP is the four-layer protocol suite (network interface, Internet, transport, application) that underpins all Internet communication.</p>
+
+                    <h4>2. Types of Networks and Transmission Media</h4>
+                    <p>Networks are categorized by geographical span and signal type:</p>
+                    <ul>
+                        <li>LANs (Local Area Networks) cover up to 500 meters, typically within a building.</li>
+                        <li>MANs (Metropolitan Area Networks) extend across cities.</li>
+                        <li>WANs (Wide Area Networks) span regions, countries, or continents; the Internet is the most universal WAN.</li>
+                    </ul>
+                     <p>Transmission media include twisted-pair wire, coaxial cable, fiber optics, and wireless (satellite, cellular). Bandwidth and transmission speed vary by medium, measured in bits per second (bps).</p>
+
+                    <h4>3. The Internet: Architecture, Addressing, and Governance</h4>
+                    <p>The Internet is a global network of networks, with access provided by Internet Service Providers (ISPs). Connection options range from dial-up (56.6 Kbps) to DSL, cable, fiber, and satellite, up to tens of Mbps.</p>
+                    <p>Every device has a 32-bit IP address; the Domain Name System (DNS) maps human-readable domain names to IP addresses via a hierarchical set of DNS servers.</p>
+                    <p>Backbone networks are owned by Tier-1 providers; regional and local ISPs connect businesses and consumers.</p>
+                    <p>Governance and standards are managed by bodies such as the IAB, ICANN, and W3C.</p>
+
+                    <h4>4. Internet Services and Communication Tools</h4>
+                    <p>Key Internet-based services include:</p>
+                    <ul>
+                        <li>E-mail, instant messaging, and newsgroups for text and file exchange.</li>
+                        <li>FTP and Telnet for remote file transfer and system access.</li>
+                        <li>World Wide Web services using HTTP, HTML, and URLs to retrieve hyperlinked content.</li>
+                        <li>Voice over IP (VoIP) and unified communications integrate voice, video, and data over IP networks.</li>
+                        <li>Virtual Private Networks (VPNs) create secure, encrypted tunnels over public networks.</li>
+                    </ul>
+
+                    <h4>5. The Web, Search, and Web 2.0/3.0</h4>
+                    <p>The Web is built on hypertext, enabling interconnected documents via embedded links.</p>
+                    <p>Search engines (e.g., Google’s PageRank) index and rank content; semantic search and social search refine results using language understanding and social signals.</p>
+                    <p>Web 2.0 emphasizes user-generated content, interactivity, and collaboration through blogs, wikis, microblogging, and social networks.</p>
+                    <p>Web 3.0 envisions a more intelligent, pervasive web—integrating the Internet of Things (IoT), cloud-based SaaS, and seamless connectivity.</p>
+
+                    <h4>6. Wireless Technologies and Standards</h4>
+                    <p>Cellular Systems have evolved from 3G (144 Kbps) to 4G/LTE/WiMax (up to 100 Mbps), supporting mobile voice and data.</p>
+                    <ul>
+                        <li>Wi-Fi (802.11) provides WLAN and Internet access via access points; hotspots offer public coverage but often lack strong security.</li>
+                        <li>Bluetooth (802.15) enables short-range personal area networking among up to eight devices.</li>
+                        <li>WiMax (802.16) extends wireless coverage up to 31 miles using specialized antennas.</li>
+                        <li>Radio Frequency Identification (RFID) uses tags and readers for asset tracking (toll collection, supply chains).</li>
+                        <li>Wireless Sensor Networks (WSNs) comprise numerous low-power devices to monitor environments, generating “big data” and fueling IoT applications.</li>
+                    </ul>
+
+                    <h4>7. Case Studies and Interactive Sessions</h4>
+                    <p>The chapter includes real-world cases and class discussions to illustrate applications and ethical considerations:</p>
+                     <ul>
+                        <li>Telepresence moving beyond boardrooms into field operations.</li>
+                        <li>Virtual collaboration with tools like IBM Sametime.</li>
+                        <li>Dundee Precious Metals using underground Wi-Fi and RFID to enhance mining efficiency.</li>
+                        <li>Debates on net neutrality and employee monitoring explore policy, legal, and business impacts.</li>
+                        <li>Future directions with IPv6 (expanding address space) and Internet2 (100 Gbps research network).</li>
+                    </ul>
+
                     <p class="warning">
-                        <strong>Warning:</strong> Plagiarism is strictly prohibited and will result
-                        in zero marks for the entire group for the project. Ensure this summary is
-                        entirely your own work.
+                        <strong>Academic Integrity Note:</strong> This summary is based on course material. Plagiarism is strictly prohibited. Ensure all project work reflects original understanding and effort.
                     </p>
                 </div>
             </div>
@@ -63,7 +120,10 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 [Your Shop Name]. All Rights Reserved. Riyadh, Saudi Arabia.</p>
+            <p>&copy; <span id="current-year"></span> Nice Car. All Rights Reserved. Riyadh, Saudi Arabia.</p>
+             <div class="footer-links">
+                 <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a>
+             </div>
         </div>
     </footer>
 

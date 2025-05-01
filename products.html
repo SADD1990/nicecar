@@ -3,22 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Products - [Your Shop Name]</title>
+    <title>Products - Nice Car</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-     <script src="https://kit.fontawesome.com/your-fontawesome-kit-code.js" crossorigin="anonymous"></script>
+     <script src="https://kit.fontawesome.com/your-fontawesome-kit-code.js" crossorigin="anonymous" defer></script>
 </head>
 <body>
-    <header>
+    <header id="main-header">
         <div class="container header-content">
             <a href="index.html" class="logo">
-                <img src="images/logo.png" alt="[Your Shop Name] Logo">
-                <h1>[Your Shop Name]</h1>
+                <img src="images/logo.png" alt="Nice Car Logo">
+                <h1>Nice Cars</h1>
             </a>
              <nav class="main-nav">
-                 <button class="nav-toggle" aria-label="toggle navigation">
+                 <button class="nav-toggle" aria-label="toggle navigation" aria-expanded="false">
                     <span class="hamburger"></span>
                 </button>
-                <ul>
+                <ul data-visible="false">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About Us</a></li>
                     <li><a href="products.html" class="active">Products</a></li>
@@ -30,55 +33,99 @@
     </header>
 
     <main>
+         <section class="page-title-section">
+             <div class="container">
+                 <h2>Our Vehicle Inventory</h2>
+            </div>
+        </section>
+
         <section class="products-page">
             <div class="container">
-                <h2>Our Products</h2>
-                <p>Browse our collection. All prices are in SAR.</p>
+                <p class="intro-paragraph">Browse our curated selection of quality vehicles. All prices are listed in Saudi Riyal (SAR).</p>
 
                 <div class="product-grid">
-                    <div class="product-card">
-                        <img src="images/product1.jpg" alt="[Product 1 Name]">
-                        <h3>[Product 1 Name]</h3>
-                        <p class="product-description">[Complete description of product 1. Features, materials, usage, etc.]</p>
-                        <p class="product-price">[Price] SAR</p>
-                        {/* <button class="btn btn-primary">Add to Cart</button> */}
-                    </div>
-                    <div class="product-card">
-                        <img src="images/product2.jpg" alt="[Product 2 Name]">
-                        <h3>[Product 2 Name]</h3>
-                         <p class="product-description">[Complete description of product 2.]</p>
-                        <p class="product-price">[Price] SAR</p>
+                    <div class="product-card fade-in" id="product1">
+                        <div class="product-image-container">
+                             <img src="images/product1.jpg" alt="Toyota Camry LE 2023">
+                        </div>
+                        <div class="product-info">
+                            <h3>Toyota Camry LE 2023</h3>
+                            <p class="product-description">Reliable and fuel-efficient sedan, perfect for city driving and families. Features include touchscreen display, rearview camera, and advanced safety systems. Low mileage.</p>
+                            <p class="product-price">115,000 SAR</p>
+                            <a href="#" class="btn btn-primary product-btn">View Details</a>
+                        </div>
                     </div>
 
-                    <div class="product-card">
-                        <img src="images/product3.jpg" alt="[Product 3 Name]">
-                        <h3>[Product 3 Name]</h3>
-                         <p class="product-description">[Complete description of product 3.]</p>
-                        <p class="product-price">[Price] SAR</p>
+                    <div class="product-card fade-in" id="product2">
+                         <div class="product-image-container">
+                            <img src="images/product2.jpg" alt="Hyundai Elantra Smart 2023">
+                        </div>
+                        <div class="product-info">
+                            <h3>Hyundai Elantra Smart 2023</h3>
+                             <p class="product-description">Stylish compact sedan with modern features like Apple CarPlay/Android Auto, keyless entry, and excellent fuel economy. Great value for money.</p>
+                            <p class="product-price">88,000 SAR</p>
+                            <a href="#" class="btn btn-primary product-btn">View Details</a>
+                         </div>
                     </div>
 
-                     <div class="product-card">
-                        <img src="images/product4.jpg" alt="[Product 4 Name]">
-                        <h3>[Product 4 Name]</h3>
-                         <p class="product-description">[Complete description of product 4.]</p>
-                        <p class="product-price">[Price] SAR</p>
+                    <div class="product-card fade-in" id="product3">
+                        <div class="product-image-container">
+                            <img src="images/product3.jpg" alt="Ford Explorer XLT 2022">
+                         </div>
+                        <div class="product-info">
+                            <h3>Ford Explorer XLT 2022</h3>
+                             <p class="product-description">Spacious 7-seater SUV ideal for families and adventures. Equipped with a powerful engine, SYNC 3 infotainment, and various driver-assist technologies.</p>
+                            <p class="product-price">175,000 SAR</p>
+                            <a href="#" class="btn btn-primary product-btn">View Details</a>
+                        </div>
                     </div>
 
-                    <div class="product-card">
-                        <img src="images/product5.jpg" alt="[Product 5 Name]">
-                        <h3>[Product 5 Name]</h3>
-                         <p class="product-description">[Complete description of product 5.]</p>
-                        <p class="product-price">[Price] SAR</p>
+                     <div class="product-card fade-in" id="product4">
+                        <div class="product-image-container">
+                            <img src="images/product4.jpg" alt="Nissan Patrol XE 2023">
+                        </div>
+                        <div class="product-info">
+                            <h3>Nissan Patrol XE 2023</h3>
+                             <p class="product-description">Legendary off-road capability combined with premium comfort. The Patrol XE offers robust performance, ample space, and essential features for desert exploration.</p>
+                            <p class="product-price">210,000 SAR</p>
+                            <a href="#" class="btn btn-primary product-btn">View Details</a>
+                        </div>
                     </div>
 
-                     </div>
+                    <div class="product-card fade-in" id="product5">
+                        <div class="product-image-container">
+                             <img src="images/product5.png" alt="Chevrolet Tahoe LS 2022">
+                        </div>
+                        <div class="product-info">
+                            <h3>Chevrolet Tahoe LS 2022</h3>
+                             <p class="product-description">Full-size American SUV known for its comfort, space, and towing capacity. Features a V8 engine, large cargo area, and user-friendly infotainment system.</p>
+                            <p class="product-price">195,000 SAR</p>
+                            <a href="#" class="btn btn-primary product-btn">View Details</a>
+                        </div>
+                    </div>
+
+                    <div class="product-card fade-in" id="product6">
+                        <div class="product-image-container">
+                            <img src="images/product6.jpg" alt="GMC Yukon SLT 2023">
+                        </div>
+                         <div class="product-info">
+                            <h3>GMC Yukon SLT 2023</h3>
+                             <p class="product-description">Premium large SUV offering a luxurious interior, advanced technology, and strong performance. Includes leather seats, Bose sound system, and panoramic sunroof.</p>
+                            <p class="product-price">260,000 SAR</p>
+                             <a href="#" class="btn btn-primary product-btn">View Details</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 [Your Shop Name]. All Rights Reserved. Riyadh, Saudi Arabia.</p>
+             <p>&copy; <span id="current-year"></span> Nice Car. All Rights Reserved. Riyadh, Saudi Arabia.</p>
+             <div class="footer-links">
+                 <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a>
+             </div>
         </div>
     </footer>
 
