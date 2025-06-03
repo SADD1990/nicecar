@@ -1,101 +1,90 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('applicationForm');
 
-    // Mobile Navigation Toggle
-    const navToggle = document.querySelector('.nav-toggle');
-    const primaryNav = document.querySelector('.main-nav ul');
+    form.addEventListener('submit', function(event) {
+        event.preventDefault(); // منع الإرسال التقليدي
+        if (validateForm()) {
+            alert('تم إرسال الطلب بنجاح!'); // يمكنك هنا إرسال البيانات عبر AJAX
+            form.reset(); // إعادة تعيين الحقول بعد الإرسال الناجح
+            clearValidationStyles();
+        } else {
+            alert('يرجى تصحيح الأخطاء في النموذج.');
+        }
+    });
 
-    if (navToggle && primaryNav) {
-        navToggle.addEventListener('click', () => {
-            const isVisible = primaryNav.getAttribute('data-visible') === "true";
-            primaryNav.setAttribute('data-visible', !isVisible);
-            navToggle.setAttribute('aria-expanded', !isVisible);
-        });
+    function validateForm() {
+        let isValid = true;
+        clearValidationStyles(); // مسح أنماط التحقق السابقة
 
-        // Close nav when a link is clicked
-        primaryNav.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                if (primaryNav.getAttribute('data-visible') === "true") {
-                    primaryNav.setAttribute('data-visible', false);
-                    navToggle.setAttribute('aria-expanded', false);
-                }
-            });
-        });
-
-        // Close nav if clicking outside of it
-        document.addEventListener('click', (event) => {
-            const isClickInsideNav = primaryNav.contains(event.target);
-            const isClickOnToggle = navToggle.contains(event.target);
-
-            if (!isClickInsideNav && !isClickOnToggle && primaryNav.getAttribute('data-visible') === "true") {
-                primaryNav.setAttribute('data-visible', false);
-                navToggle.setAttribute('aria-expanded', false);
-            }
-        });
-    }
-
-    // Sticky Header on Scroll
-    const header = document.getElementById('main-header');
-    if (header) {
-        const stickyPoint = header.offsetTop + 50; // Add some offset
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > stickyPoint) {
-                header.classList.add('scrolled');
+        // التحقق من الحقول المطلوبة
+        const requiredFields = form.querySelectorAll('[required]');
+        requiredFields.forEach(field => {
+            if (!field.value.trim()) {
+                isValid = false;
+                showError(field, 'هذا الحقل مطلوب.');
             } else {
-                header.classList.remove('scrolled');
+                showSuccess(field);
             }
         });
+
+        // التحقق من البريد الإلكتروني
+        const emailField = document.getElementById('email');
+        if (emailField.value.trim() && !isValidEmail(emailField.value.trim())) {
+            isValid = false;
+            showError(emailField, 'الرجاء إدخال بريد إلكتروني صحيح.');
+        } else if (emailField.value.trim()) {
+            showSuccess(emailField);
+        }
+
+        // التحقق من رقم الجوال
+        const mobileField = document.getElementById('mobileNumber');
+        const mobilePattern = /^05[0-9]{8}$/;
+        if (mobileField.value.trim() && !mobilePattern.test(mobileField.value.trim())) {
+            isValid = false;
+            showError(mobileField, 'رقم الجوال يجب أن يبدأ بـ 05 ويتكون من 10 أرقام.');
+        } else if (mobileField.value.trim() && mobilePattern.test(mobileField.value.trim())) {
+             showSuccess(mobileField);
+        }
+
+
+        // يمكنك إضافة المزيد من قواعد التحقق هنا (مثال: طول رقم الهوية، إلخ)
+
+        return isValid;
     }
 
-    // Fade-in elements on Scroll
-    const fadeInElements = document.querySelectorAll('.fade-in');
-
-    if ("IntersectionObserver" in window) {
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target); // Stop observing once visible
-                }
-            });
-        }, {
-            threshold: 0.1 // Trigger when 10% of the element is visible
-        });
-
-        fadeInElements.forEach(el => {
-            observer.observe(el);
-        });
-    } else {
-        // Fallback for older browsers - make elements visible immediately
-        fadeInElements.forEach(el => {
-            el.classList.add('visible');
-        });
+    function isValidEmail(email) {
+        // تعبير نمطي بسيط للتحقق من البريد الإلكتروني
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
     }
 
-     // Update Footer Year Dynamically
-    const yearSpan = document.getElementById('current-year');
-    if (yearSpan) {
-        yearSpan.textContent = new Date().getFullYear();
+    function showError(inputElement, message) {
+        inputElement.classList.remove('valid');
+        inputElement.classList.add('invalid');
+        let errorMessage = inputElement.parentNode.querySelector('.error-message');
+        if (!errorMessage) {
+            errorMessage = document.createElement('small');
+            errorMessage.className = 'error-message';
+            inputElement.parentNode.appendChild(errorMessage);
+        }
+        errorMessage.textContent = message;
     }
 
-    // Basic Contact Form Validation Feedback (Example)
-    const contactForm = document.getElementById('contact-form');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(event) {
-            // Prevent actual submission for this example
-            event.preventDefault();
-
-            // Very basic check
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
-
-            if (name && email && message) {
-                alert('Thank you for your message! (Form submission not implemented)');
-                contactForm.reset(); // Clear the form
-            } else {
-                alert('Please fill out all required fields.');
-            }
-        });
+    function showSuccess(inputElement) {
+        inputElement.classList.remove('invalid');
+        inputElement.classList.add('valid');
+        let errorMessage = inputElement.parentNode.querySelector('.error-message');
+        if (errorMessage) {
+            errorMessage.remove();
+        }
     }
 
+    function clearValidationStyles() {
+        form.querySelectorAll('.invalid').forEach(el => el.classList.remove('invalid'));
+        form.querySelectorAll('.valid').forEach(el => el.classList.remove('valid'));
+        form.querySelectorAll('.error-message').forEach(el => el.remove());
+    }
+
+    // إضافة تلميحات تفاعلية أو تحسينات أخرى عند الحاجة
+    // مثال: تغيير لون الحدود عند التركيز (تم التعامل معه بـ CSS :focus)
 });
